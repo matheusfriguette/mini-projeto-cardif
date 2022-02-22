@@ -45,6 +45,13 @@
       "phone": "34991238312",
       "schoolId": "3",
       "id": 1
+    },
+    {
+      "name": "José",
+      "email": "jose@roxinha.com",
+      "phone": "34931290391",
+      "schoolId": "3",
+      "id": 2
     }
   ],
   "grades": []

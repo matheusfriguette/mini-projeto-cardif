@@ -27,7 +27,7 @@ export class TeachersService extends BaseService {
 
   getTeacher(id: number): Observable<Teacher> {
     return this.httpClient.get<Teacher>(
-      `${this.url}/schools/${this.currentSchoolId}/teachers/${id}`
+      `${this.url}/teachers/${id}`
     );
   }
 
@@ -41,14 +41,14 @@ export class TeachersService extends BaseService {
 
   updateTeacher(teacher: Teacher): Observable<void> {
     return this.httpClient.put<void>(
-      `${this.url}/schools/${this.currentSchoolId}/teachers/${teacher.id}`,
+      `${this.url}/teachers/${teacher.id}`,
       teacher
     );
   }
 
   deleteTeacher(id: number): Observable<void> {
     return this.httpClient.delete<void>(
-      `${this.url}/schools/${this.currentSchoolId}/teachers/${id}`
+      `${this.url}/teachers/${id}`
     );
   }
 }

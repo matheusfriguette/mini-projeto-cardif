@@ -27,7 +27,7 @@ export class GradesService extends BaseService {
 
   getGrade(id: number): Observable<Grade> {
     return this.httpClient.get<Grade>(
-      `${this.url}/schools/${this.currentSchoolId}/grades/${id}`
+      `${this.url}/grades/${id}`
     );
   }
 
@@ -41,14 +41,14 @@ export class GradesService extends BaseService {
 
   updateGrade(grade: Grade): Observable<void> {
     return this.httpClient.put<void>(
-      `${this.url}/schools/${this.currentSchoolId}/grades/${grade.id}`,
+      `${this.url}/grades/${grade.id}`,
       grade
     );
   }
 
   deleteGrade(id: number): Observable<void> {
     return this.httpClient.delete<void>(
-      `${this.url}/schools/${this.currentSchoolId}/grades/${id}`
+      `${this.url}/grades/${id}`
     );
   }
 }

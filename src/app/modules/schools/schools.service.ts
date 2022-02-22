@@ -1,15 +1,17 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { School } from 'src/app/shared/models/school';
+import { BaseService } from 'src/app/shared/services/base.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SchoolsService {
-  url = 'http://localhost:3000';
-
-  constructor(private httpClient: HttpClient) {}
+export class SchoolsService extends BaseService {
+  constructor(private httpClient: HttpClient, protected override store: Store) {
+    super(store);
+  }
 
   getSchools(): Observable<HttpResponse<School[]>> {
     return this.httpClient.get<School[]>(`${this.url}/schools`, {

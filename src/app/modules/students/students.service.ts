@@ -23,7 +23,7 @@ export class StudentsService extends BaseService {
   }
 
   getStudent(id: number): Observable<Student> {
-    return this.httpClient.get<Student>(`${this.url}/schools/${this.currentSchoolId}/students/${id}`);
+    return this.httpClient.get<Student>(`${this.url}/students/${id}`);
   }
 
   registerStudent(student: Student): Observable<void> {
@@ -33,12 +33,12 @@ export class StudentsService extends BaseService {
 
   updateStudent(student: Student): Observable<void> {
     return this.httpClient.put<void>(
-      `${this.url}/schools/${this.currentSchoolId}/students/${student.id}`,
+      `${this.url}/students/${student.id}`,
       student
     );
   }
 
   deleteStudent(id: number): Observable<void> {
-    return this.httpClient.delete<void>(`${this.url}/schools/${this.currentSchoolId}/students/${id}`);
+    return this.httpClient.delete<void>(`${this.url}/students/${id}`);
   }
 }
