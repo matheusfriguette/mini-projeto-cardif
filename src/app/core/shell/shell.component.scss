@@ -1,0 +1,13 @@
+.shell {
+  &__sidebar-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+  }
+
+  &__content-wrapper {
+    margin-left: 250px;
+    padding: 36px;
+    position: relative;
+  }
+}

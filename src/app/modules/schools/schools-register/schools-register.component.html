@@ -1,0 +1,121 @@
+<div class="schools-register">
+  <h1>Cadastrar nova escola</h1>
+
+  <form [formGroup]="schoolForm" (ngSubmit)="onSubmit()">
+    <div class="schools-register__row">
+      <mat-form-field appearance="outline" class="schools-register__col">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-error *ngIf="schoolForm.get('name')?.invalid">
+          O nome é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="schools-register__col">
+        <mat-label>Telefone</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="phone"
+          mask="(00) 0 0000-0000"
+        />
+        <mat-error *ngIf="schoolForm.get('phone')?.invalid">
+          O telefone é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="schools-register__col">
+        <mat-label>Cor da marca (hex)</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="brandColor"
+          prefix="#"
+          mask="AAAAAA"
+          [dropSpecialCharacters]="false"
+        />
+        <div
+          matSuffix
+          class="schools-register__color-preview"
+          [ngStyle]="{
+            'background-color': schoolForm.get('brandColor')?.value
+          }"
+        ></div>
+        <mat-error *ngIf="schoolForm.get('brandColor')?.invalid">
+          A cor da marca é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="grades-register__address-title">
+      <h2>Endereço</h2>
+    </div>
+
+    <div class="schools-register__row">
+      <mat-form-field appearance="outline" class="schools-register__col--3">
+        <mat-label>CEP</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="cep"
+          mask="00000-000"
+          [dropSpecialCharacters]="false"
+        />
+        <mat-error *ngIf="schoolForm.get('cep')?.invalid">
+          O CEP é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="schools-register__col--8">
+        <mat-label>Rua</mat-label>
+        <input matInput type="text" formControlName="streetName" />
+        <mat-error *ngIf="schoolForm.get('streetName')?.invalid">
+          A rua é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="schools-register__col--1">
+        <mat-label>Número</mat-label>
+        <input matInput type="number" formControlName="streetNumber" />
+        <mat-error *ngIf="schoolForm.get('streetNumber')?.invalid">
+          O número é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="schools-register__row">
+      <mat-form-field appearance="outline" class="schools-register__col">
+        <mat-label>Bairro</mat-label>
+        <input matInput type="text" formControlName="neighborhood" />
+        <mat-error *ngIf="schoolForm.get('neighborhood')?.invalid">
+          O bairro é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="schools-register__col">
+        <mat-label>Cidade</mat-label>
+        <input matInput type="text" formControlName="city" />
+        <mat-error *ngIf="schoolForm.get('city')?.invalid">
+          A cidade é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="schools-register__col">
+        <mat-label>Estado</mat-label>
+        <input matInput type="text" formControlName="state" />
+        <mat-error *ngIf="schoolForm.get('state')?.invalid">
+          O estado é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="schools-register__button-wrapper">
+      <button mat-stroked-button type="button" (click)="goToList()">
+        Cancelar
+      </button>
+      <button mat-flat-button color="primary" [disabled]="schoolForm.invalid">
+        Salvar
+      </button>
+    </div>
+  </form>
+</div>

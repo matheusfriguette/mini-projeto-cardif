@@ -1,0 +1,55 @@
+.schools-register {
+  &__row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: -16px;
+    margin-left: -16px;
+  }
+
+  &__col {
+    flex-basis: 0;
+    flex-grow: 1;
+    position: relative;
+    padding-right: 16px;
+    padding-left: 16px;
+    box-sizing: border-box;
+
+    &--1 {
+      @extend .schools-register__col;
+      flex: 0 0 8.333333%;
+      width: 8.333333%;
+    }
+
+    &--3 {
+      @extend .schools-register__col;
+      flex: 0 0 25%;
+      width: 25%;
+    }
+
+    &--8 {
+      @extend .schools-register__col;
+      flex: 0 0 66.666667%;
+      width: 66.666667%;
+    }
+  }
+
+  &__color-preview {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  &__address-title {
+    margin-bottom: 24px;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    margin-top: 16px;
+
+    button {
+      margin-right: 16px;
+    }
+  }
+}

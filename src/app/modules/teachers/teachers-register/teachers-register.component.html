@@ -1,0 +1,45 @@
+<div class="teachers-register">
+  <h1>Cadastrar novo professor</h1>
+
+  <form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+    <div class="teachers-register__row">
+      <mat-form-field appearance="outline" class="teachers-register__col">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-error *ngIf="teacherForm.get('name')?.invalid">
+          O nome é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="teachers-register__col">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="text" formControlName="email" />
+        <mat-error *ngIf="teacherForm.get('email')?.invalid">
+          O e-mail é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="teachers-register__col">
+        <mat-label>Telefone</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="phone"
+          mask="(00) 0 0000-0000"
+        />
+        <mat-error *ngIf="teacherForm.get('phone')?.invalid">
+          O telefone é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="teachers-register__button-wrapper">
+      <button mat-stroked-button type="button" (click)="goToList()">
+        Cancelar
+      </button>
+      <button mat-flat-button color="primary" [disabled]="teacherForm.invalid">
+        Salvar
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+.teachers-register {
+  &__row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: -16px;
+    margin-left: -16px;
+  }
+
+  &__col {
+    flex-basis: 0;
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    margin-top: 16px;
+
+    button {
+      margin-right: 16px;
+    }
+  }
+}

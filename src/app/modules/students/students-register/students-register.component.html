@@ -1,0 +1,61 @@
+<div class="students-register">
+  <h1>Cadastrar novo aluno</h1>
+
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div class="students-register__row">
+      <mat-form-field appearance="outline" class="students-register__col">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-error *ngIf="studentForm.get('name')?.invalid">
+          O nome é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="students-register__col">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="text" formControlName="email" />
+        <mat-error *ngIf="studentForm.get('email')?.invalid">
+          O e-mail é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="students-register__col">
+        <mat-label>Data de nascimento</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="birthday"
+          mask="00/00/0000"
+          [dropSpecialCharacters]="false"
+        />
+        <mat-error *ngIf="studentForm.get('birthday')?.invalid">
+          A data de nascimnto é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="students-register__col">
+        <mat-label>Ano letivo</mat-label>
+        <mat-select
+          formControlName="grade"
+          [compareWith]="selectedGradeComparison"
+        >
+          <mat-option *ngFor="let grade of gradeOptions$ | async" [value]="grade">
+            {{ grade.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="studentForm.get('grade')?.invalid">
+          O ano letivo é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="students-register__button-wrapper">
+      <button mat-stroked-button type="button" (click)="goToList()">
+        Cancelar
+      </button>
+      <button mat-flat-button color="primary" [disabled]="studentForm.invalid">
+        Salvar
+      </button>
+    </div>
+  </form>
+</div>

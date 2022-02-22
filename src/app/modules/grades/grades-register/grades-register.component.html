@@ -1,0 +1,73 @@
+<div class="grades-register">
+  <h1>Cadastrar novo ano letivo</h1>
+
+  <form [formGroup]="gradeForm" (ngSubmit)="onSubmit()">
+    <div class="grades-register__row">
+      <mat-form-field appearance="outline" class="grades-register__col">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-error *ngIf="gradeForm.get('name')?.invalid">
+          O nome é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="grades-register__subject-title">
+      <h2>Matérias</h2>
+
+      <button
+        mat-stroked-button
+        color="primary"
+        type="button"
+        (click)="addNewSubject()"
+      >
+        Adicionar nova matéria
+      </button>
+    </div>
+
+    <div
+      formArrayName="subjects"
+      *ngFor="let control of subjectsForm.controls; let i = index"
+    >
+      <div [formGroupName]="i" class="grades-register__row">
+        <mat-form-field appearance="outline" class="grades-register__col">
+          <mat-label>Nome</mat-label>
+          <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="grades-register__col">
+          <mat-label>Professor</mat-label>
+          <mat-select
+            formControlName="teacher"
+            [compareWith]="selectedTeacherComparison"
+          >
+            <mat-option
+              *ngFor="let teacher of teacherOptions$ | async"
+              [value]="teacher"
+            >
+              {{ teacher.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          mat-icon-button
+          color="primary"
+          type="button"
+          (click)="deleteSubject(i)"
+        >
+          <app-icon name="delete" [size]="24"></app-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="grades-register__button-wrapper">
+      <button mat-stroked-button type="button" (click)="goToList()">
+        Cancelar
+      </button>
+      <button mat-flat-button color="primary" [disabled]="gradeForm.invalid">
+        Salvar
+      </button>
+    </div>
+  </form>
+</div>

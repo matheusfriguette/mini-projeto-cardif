@@ -1,0 +1,34 @@
+.sidebar {
+  background: var(--theme-primary-500);
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  overflow: auto;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    background: var(--theme-primary-700);
+    padding: 24px;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--theme-primary-contrast-700);
+
+    span {
+      margin-left: 8px;
+    }
+  }
+
+  &__nav-list {
+    padding: 24px 8px;
+
+    a {
+      color: var(--theme-primary-contrast-500);
+
+      span {
+        margin-left: 8px;
+      }
+    }
+  }
+}

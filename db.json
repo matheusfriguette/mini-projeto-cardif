@@ -1,0 +1,51 @@
+{
+  "schools": [
+    {
+      "id": 1,
+      "name": "Raio de Sol",
+      "phone": "34923193291",
+      "brandColor": "#facc15",
+      "cep": "68927-233",
+      "streetName": "Avenida Coelho Neto",
+      "streetNumber": 23,
+      "neighborhood": "Nova Brasília",
+      "city": "Santana",
+      "state": "AP"
+    },
+    {
+      "name": "ZUP",
+      "phone": "34929319329",
+      "brandColor": "#84cc16",
+      "cep": "65600-436",
+      "streetName": "Rua Seis",
+      "streetNumber": 3,
+      "neighborhood": "São Francisco",
+      "city": "Caxias",
+      "state": "MA",
+      "id": 2
+    },
+    {
+      "name": "Roxinha",
+      "phone": "34923913922",
+      "brandColor": "#4f46e5",
+      "cep": "66821-080",
+      "streetName": "Passagem Silveira",
+      "streetNumber": 12,
+      "neighborhood": "Parque Guajará (Icoaraci)",
+      "city": "Belém",
+      "state": "PA",
+      "id": 3
+    }
+  ],
+  "students": [],
+  "teachers": [
+    {
+      "name": "Robson",
+      "email": "robson@roxinha.com",
+      "phone": "34991238312",
+      "schoolId": "3",
+      "id": 1
+    }
+  ],
+  "grades": []
+}
