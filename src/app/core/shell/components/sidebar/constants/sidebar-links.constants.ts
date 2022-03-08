@@ -14,9 +14,17 @@ export const SidebarLinks = [
     label: 'Grade currícular',
     icon: 'grades',
   },
+];
+
+export const AdminSidebarLinks = [
   {
     route: '/schools',
     label: 'Escolas',
     icon: 'schools',
+  },
+  {
+    route: '/users',
+    label: 'Usuários',
+    icon: 'user',
   },
 ];

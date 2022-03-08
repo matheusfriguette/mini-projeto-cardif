@@ -11,7 +11,7 @@ export class BaseService {
 
   get currentSchoolId(): number {
     return this.store.selectSnapshot<number>(
-      (state) => state.currentSchool.school.id
+      (state) => state.auth.currentSchool.id
     );
   }
 }

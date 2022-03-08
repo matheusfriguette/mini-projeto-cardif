@@ -35,24 +35,97 @@
       "city": "Belém",
       "state": "PA",
       "id": 3
-    }
-  ],
-  "students": [],
-  "teachers": [
-    {
-      "name": "Robson",
-      "email": "robson@roxinha.com",
-      "phone": "34991238312",
-      "schoolId": "3",
-      "id": 1
     },
     {
-      "name": "José",
-      "email": "jose@roxinha.com",
-      "phone": "34931290391",
-      "schoolId": "3",
-      "id": 2
+      "name": "Chiquititas",
+      "phone": "34912239823",
+      "brandColor": "#991b1b",
+      "cep": "38912-371",
+      "streetName": "qw0asiodasdio",
+      "streetNumber": 23,
+      "neighborhood": "adsdasd",
+      "city": "dsadasd",
+      "state": "sdasdsad",
+      "id": 4
+    },
+    {
+      "name": "ssdaasd",
+      "phone": "12321231231",
+      "brandColor": "#328932",
+      "cep": "21312-321",
+      "streetName": "dsadasd",
+      "streetNumber": 223,
+      "neighborhood": "asdas",
+      "city": "dsadas",
+      "state": "asdasdasdasd",
+      "id": 5
     }
   ],
-  "grades": []
+  "students": [
+    {
+      "name": "Matheus",
+      "email": "matheus@gmail.com",
+      "birthday": "14/02/2001",
+      "grade": {
+        "id": 1,
+        "name": "6º ano ",
+        "subjects": [
+          {
+            "name": "Ciencia",
+            "teacher": {
+              "name": "Sergio",
+              "email": "segio@fdmikdfm.com",
+              "phone": "33431290812",
+              "schoolId": "4",
+              "id": 3
+            }
+          },
+          {
+            "name": "Matematica",
+            "teacher": {
+              "name": "Sergio",
+              "email": "segio@fdmikdfm.com",
+              "phone": "33431290812",
+              "schoolId": "4",
+              "id": 3
+            }
+          }
+        ]
+      },
+      "schoolId": "4",
+      "id": 1
+    }
+  ],
+  "teachers": [
+    {
+      "name": "Sergio",
+      "email": "segio@fdmikdfm.com",
+      "phone": "33431290812",
+      "schoolId": "4",
+      "id": 3
+    },
+    {
+      "name": "sadsad213",
+      "email": "asdasdsa",
+      "phone": "23121231231",
+      "schoolId": "3",
+      "id": 6
+    }
+  ],
+  "grades": [],
+  "users": [
+    {
+      "id": 1,
+      "user": "matheusfr",
+      "password": "senha",
+      "role": "admin"
+    },
+    {
+      "user": "padrao",
+      "password": "senha",
+      "role": "common",
+      "defaultSchool": 3,
+      "id": 2
+    }
+  ]
 }

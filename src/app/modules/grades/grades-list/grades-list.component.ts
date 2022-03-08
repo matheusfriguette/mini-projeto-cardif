@@ -14,7 +14,7 @@ import { GradesState } from 'src/app/shared/stores/grades/grades.state';
   templateUrl: './grades-list.component.html',
   styleUrls: ['./grades-list.component.scss'],
 })
-export class GradesListComponent implements OnInit {
+export class GradesListComponent {
   @Select(GradesState.getData) grades$!: Observable<Grade[]>;
 
   displayedColumns: string[] = ['name', 'subjects', 'actions'];
@@ -25,14 +25,6 @@ export class GradesListComponent implements OnInit {
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {}
-
-  ngOnInit() {
-    this.getGrades();
-  }
-
-  getGrades() {
-    this.store.dispatch(new Grades.List());
-  }
 
   onRegisterClick() {
     this.router.navigate(['/grades/register']);

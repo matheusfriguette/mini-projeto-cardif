@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.75% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/16</span>
+                <span class='fraction'>10/16</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>8/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,22 +107,22 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,11 +162,11 @@ import { BaseService } from 'src/app/shared/services/base.service';
   providedIn: 'root',
 })
 export class StudentsService extends BaseService {
-<span class="fstat-no" title="function not covered" >  constructor(</span>
-    protected <span class="cstat-no" title="statement not covered" >httpClient: H</span>ttpClient,
-    protected override <span class="cstat-no" title="statement not covered" >store: S</span>tore
+  constructor(
+    protected httpClient: HttpClient,
+    protected override store: Store
   ) {
-<span class="cstat-no" title="statement not covered" >    super(store);</span>
+    super(store);
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  getStudents(</span>): Observable&lt;HttpResponse&lt;Student[]&gt;&gt; {
@@ -176,7 +176,7 @@ export class StudentsService extends BaseService {
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  getStudent(</span>id: number): Observable&lt;Student&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.httpClient.get&lt;Student&gt;(`${this.url}/schools/${this.currentSchoolId}/students/${id}`);</span>
+<span class="cstat-no" title="statement not covered" >    return this.httpClient.get&lt;Student&gt;(`${this.url}/students/${id}`);</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  registerStudent(</span>student: Student): Observable&lt;void&gt; {
@@ -186,13 +186,13 @@ export class StudentsService extends BaseService {
 &nbsp;
 <span class="fstat-no" title="function not covered" >  updateStudent(</span>student: Student): Observable&lt;void&gt; {
 <span class="cstat-no" title="statement not covered" >    return this.httpClient.put&lt;void&gt;(</span>
-      `${this.url}/schools/${this.currentSchoolId}/students/${student.id}`,
+      `${this.url}/students/${student.id}`,
       student
     );
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  deleteStudent(</span>id: number): Observable&lt;void&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.httpClient.delete&lt;void&gt;(`${this.url}/schools/${this.currentSchoolId}/students/${id}`);</span>
+<span class="cstat-no" title="statement not covered" >    return this.httpClient.delete&lt;void&gt;(`${this.url}/students/${id}`);</span>
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -202,7 +202,7 @@ export class StudentsService extends BaseService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Feb 21 2022 22:39:41 GMT-0300 (Horário Padrão de Brasília)
+                at Tue Mar 08 2022 02:22:38 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../../prettify.js"></script>
         <script>

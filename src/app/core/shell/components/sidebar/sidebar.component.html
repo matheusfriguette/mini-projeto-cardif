@@ -4,11 +4,19 @@
       <app-icon name="school"></app-icon>
       <span>{{ (currentSchool$ | async)?.name }}</span>
     </div>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      *ngIf="user?.role === 'admin'"
+    >
       <app-icon name="arrow-down" [size]="12"></app-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item *ngFor="let school of schools$ | async" (click)="updateSchool(school)">
+      <button
+        mat-menu-item
+        *ngFor="let school of schools$ | async"
+        (click)="updateSchool(school)"
+      >
         <span>{{ school.name }}</span>
       </button>
     </mat-menu>
@@ -23,4 +31,8 @@
       <span>{{ sidebarLink.label }}</span>
     </a>
   </mat-nav-list>
+
+  <button mat-flat-button class="sidebar__logout-button" (click)="logout()">
+    Sair
+  </button>
 </div>

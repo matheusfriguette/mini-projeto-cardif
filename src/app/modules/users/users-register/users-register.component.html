@@ -1,0 +1,63 @@
+<div class="users-register">
+  <h1>Cadastrar nova escola</h1>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="users-register__row">
+      <mat-form-field appearance="outline" class="users-register__col">
+        <mat-label>Usuário</mat-label>
+        <input matInput type="text" formControlName="user" />
+        <mat-error *ngIf="userForm.get('user')?.invalid">
+          O usuário é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="users-register__col">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="userForm.get('password')?.invalid">
+          A senha é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="users-register__col">
+        <mat-label>Função</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let role of roleOptions" [value]="role.value">
+            {{ role.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="userForm.get('role')?.invalid">
+          A função é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="userForm.get('role')?.value === 'common'"
+        appearance="outline"
+        class="users-register__col"
+      >
+        <mat-label>Escola</mat-label>
+        <mat-select
+          formControlName="defaultSchool"
+          [compareWith]="selectedSchoolComparison"
+        >
+          <mat-option
+            *ngFor="let school of schoolOptions$ | async"
+            [value]="school.id"
+          >
+            {{ school.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="users-register__button-wrapper">
+      <button mat-stroked-button type="button" (click)="goToList()">
+        Cancelar
+      </button>
+      <button mat-flat-button color="primary" [disabled]="userForm.invalid">
+        Salvar
+      </button>
+    </div>
+  </form>
+</div>

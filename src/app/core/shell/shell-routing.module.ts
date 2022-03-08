@@ -35,6 +35,13 @@ const routes: Routes = [
             (m) => m.SchoolsModule
           ),
       },
+      {
+        path: 'users',
+        loadChildren: () =>
+          import('../../modules/users/users.module').then(
+            (m) => m.UsersModule
+          ),
+      },
     ],
   },
 ];

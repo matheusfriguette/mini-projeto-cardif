@@ -6,7 +6,6 @@ import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Grade } from 'src/app/shared/models/grade';
 import { Student } from 'src/app/shared/models/student';
-import { Grades } from 'src/app/shared/stores/grades/grades.actions';
 import { GradesState } from 'src/app/shared/stores/grades/grades.state';
 import { Students } from 'src/app/shared/stores/students/students.actions';
 
@@ -38,12 +37,7 @@ export class StudentsRegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getGrades();
     this.checkIfIsEditing();
-  }
-
-  getGrades() {
-    this.store.dispatch(new Grades.List());
   }
 
   checkIfIsEditing() {

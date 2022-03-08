@@ -41,12 +41,7 @@ export class GradesRegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTeachers();
     this.checkIfIsEditing();
-  }
-
-  getTeachers() {
-    this.store.dispatch(new Teachers.List());
   }
 
   checkIfIsEditing() {

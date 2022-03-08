@@ -11,8 +11,9 @@ import { StudentsState } from './shared/stores/students/students.state';
 import { TeachersState } from './shared/stores/teachers/teachers.state';
 import { GradesState } from './shared/stores/grades/grades.state';
 import { SchoolsState } from './shared/stores/schools/schools.state';
-import { CurrentSchoolState } from './shared/stores/current-school/current-school.state';
+import { AuthState } from './shared/stores/auth/auth.state';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { UsersState } from './shared/stores/users/users.state';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,14 +24,15 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
     NoopAnimationsModule,
     HttpClientModule,
     NgxsStoragePluginModule.forRoot({
-      key: 'currentSchool'
+      key: 'auth',
     }),
     NgxsModule.forRoot([
       StudentsState,
       TeachersState,
       GradesState,
       SchoolsState,
-      CurrentSchoolState,
+      UsersState,
+      AuthState,
     ]),
     NgxsLoggerPluginModule.forRoot(),
   ],

@@ -23,13 +23,20 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="grade">
+      <th mat-header-cell *matHeaderCellDef>Ano currícular</th>
+      <td mat-cell *matCellDef="let student">
+        {{ student.grade.name }}
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let student">
-        <button mat-icon-button (click)="editStudent(student.id)">
+        <button mat-icon-button (click)="editStudent(student.id)" class="students-list__edit">
           <app-icon name="edit" [size]="16"></app-icon>
         </button>
-        <button mat-icon-button (click)="deleteStudent(student)">
+        <button mat-icon-button (click)="deleteStudent(student)" class="students-list__delete">
           <app-icon name="delete" [size]="16"></app-icon>
         </button>
       </td>

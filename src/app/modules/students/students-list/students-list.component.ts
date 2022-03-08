@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Student } from 'src/app/shared/models/student';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -14,10 +14,10 @@ import { Students } from 'src/app/shared/stores/students/students.actions';
   templateUrl: './students-list.component.html',
   styleUrls: ['./students-list.component.scss'],
 })
-export class StudentsListComponent implements OnInit {
+export class StudentsListComponent {
   @Select(StudentsState.getData) students$!: Observable<Student[]>;
 
-  displayedColumns: string[] = ['name', 'email', 'birthday', 'actions'];
+  displayedColumns: string[] = ['name', 'email', 'birthday', 'grade', 'actions'];
 
   constructor(
     private store: Store,
@@ -25,14 +25,6 @@ export class StudentsListComponent implements OnInit {
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {}
-
-  ngOnInit() {
-    this.getStudents();
-  }
-
-  getStudents() {
-    this.store.dispatch(new Students.List());
-  }
 
   onRegisterClick() {
     this.router.navigate(['/students/register']);
